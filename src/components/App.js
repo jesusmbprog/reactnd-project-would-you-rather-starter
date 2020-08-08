@@ -1,29 +1,39 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
- import LoadingBar from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
+import Loggin from './Login'
 
 class App extends Component {
+
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    const { handleInitialData } = this.props;
+    handleInitialData();  
   }
+
   render() {
+    const { authedUser } = this.props;
+
     return (
       <Router>
-        <Fragment>
-          <LoadingBar />
-          <div className='container'>
-            <Nav />
-            {this.props.loading === true
-              ? null
-              : <div>
-                  <Route path='/' exact component={Dashboard} />
-                </div>}
-          </div>
-        </Fragment>
+        {authedUser ?
+          <Fragment>
+            <LoadingBar />
+            <div className='container'>
+              <Nav />
+              {this.props.loading === true
+                ? null
+                : <div>
+                    <Route path='/' exact component={Dashboard} />
+                  </div>}
+            </div>
+          </Fragment>
+          : <Loggin></Loggin>
+        }
       </Router>
     )
   }
@@ -31,8 +41,14 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser }) {
   return {
-    loading: authedUser === null
+    authedUser
   }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+  return {
+    handleInitialData: bindActionCreators(handleInitialData, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
