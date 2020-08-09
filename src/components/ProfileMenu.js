@@ -29,12 +29,12 @@ class ProfileMenu extends React.Component {
     render() {
         const { user } = this.props;
         const userName = user.name;
-        const {anchorEl} = this.state;
+        const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
 
         return (
             <div>
-                <span> { userName } </span>
+                <span>Hello, { userName } </span>
                 <IconButton
                     aria-owns={open ? 'menu-appbar' : undefined}
                     aria-haspopup="true"

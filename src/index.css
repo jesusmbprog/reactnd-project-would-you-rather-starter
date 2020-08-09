@@ -30,8 +30,93 @@ code {
   font-weight: bold;  
 }
 
+.question-dashboard {
+  width: 700px;
+  margin: auto;
+}
+
 /* Nav */
 
 .nav-title{
   flex-grow: 1;
+}
+
+.nav-link{
+  color: white;
+  text-decoration: none;
+  padding: 16px;
+}
+
+.nav-link:hover{
+  color: #3f51b5;
+  background-color: white;
+}
+
+/* Question Card */
+
+.question-body {
+  display: flex;
+}
+
+.question-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  margin: 0 24px !important;
+}
+
+.question-content {
+  width: 100%;
+}
+
+.question-margin {
+  margin: 8px 0 !important;
+}
+
+.question-button {
+  margin: auto;
+  width: 100%;
+}
+
+/* Question List */
+
+.question-list {
+  padding: 2% 0%;
+}
+
+/* vote icon */
+
+.vote-container {
+  position: relative;
+}
+
+.vote-icon {
+  position: absolute;
+  right: 0;
+  top: -8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  background-color: #ffbc00;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* New question */
+
+.new-question-title {
+  margin-top: 24px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.new-question-divider {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
 }

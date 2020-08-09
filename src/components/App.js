@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Dashboard from './Dashboard'
+import Home from './Home'
+import QuestionPage from './QuestionPage'
+import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Loggin from './Login'
@@ -28,7 +30,9 @@ class App extends Component {
               {this.props.loading === true
                 ? null
                 : <div>
-                    <Route path='/' exact component={Dashboard} />
+                    <Route path='/' exact component={Home} />
+                    <Route path='/question/:id' component={QuestionPage}/>
+                    <Route path='/add' component={NewQuestion}/>
                   </div>}
             </div>
           </Fragment>
