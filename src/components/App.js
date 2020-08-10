@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -7,6 +8,7 @@ import Home from './Home'
 import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import NotFound from './NotFound'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Loggin from './Login'
@@ -31,10 +33,13 @@ class App extends Component {
               {this.props.loading === true
                 ? null
                 : <div>
+                  <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/question/:id' component={QuestionPage}/>
                     <Route path='/add' component={NewQuestion}/>
                     <Route path='/leaderboard' component={LeaderBoard}/>
+                    <Route path='*' component={NotFound}/>
+                  </Switch>
                   </div>}
             </div>
           </Fragment>
