@@ -6,6 +6,7 @@ import { handleInitialData } from '../actions/shared'
 import Home from './Home'
 import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 import Loggin from './Login'
@@ -33,6 +34,7 @@ class App extends Component {
                     <Route path='/' exact component={Home} />
                     <Route path='/question/:id' component={QuestionPage}/>
                     <Route path='/add' component={NewQuestion}/>
+                    <Route path='/leaderboard' component={LeaderBoard}/>
                   </div>}
             </div>
           </Fragment>
