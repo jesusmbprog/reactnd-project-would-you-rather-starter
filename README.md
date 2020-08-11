@@ -17,4 +17,4 @@ To get started developing right away:
 
 ## Authors
 
-* **Jesus Maneiro** - *Initial work* - [PurpleBooth](https://github.com/jesusmbprog/)
+* **Jesus Maneiro** - [GitHub](https://github.com/jesusmbprog/)
